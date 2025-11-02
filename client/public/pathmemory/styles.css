@@ -1,0 +1,199 @@
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PressStart2P', sans-serif;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #e6e6e6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #16213e;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9/16;
+    max-height: 90vh;
+}
+
+.menu-screen, .how-to-play-screen, .game-screen, 
+.level-complete-screen, .game-over-screen {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.how-to-play-screen, .game-screen, 
+.level-complete-screen, .game-over-screen {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+h1, h2 {
+    color: #f8bb22;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%;
+}
+
+button {
+    background-color: #4cc9f0;
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #3a86ff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.instructions {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+.instructions p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.grid-container {
+    width: 90%;
+    aspect-ratio: 1/1;
+    display: grid;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.tile {
+    background-color: #0f3460;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tile::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8bb22;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.tile.highlight::after {
+    opacity: 0.8;
+}
+
+.tile.correct {
+    background-color: #4cc9f0;
+}
+
+.tile.wrong {
+    background-color: #f72585;
+    animation: shake 0.5s;
+}
+
+.game-controls {
+    display: flex;
+    gap: 15px;
+    width: 90%;
+}
+
+.level-complete-screen p, .game-over-screen p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#bonusPoints {
+    color: #4cc9f0;
+    font-weight: 600;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .menu-buttons, .instructions, .grid-container, .game-controls {
+        width: 95%;
+    }
+}

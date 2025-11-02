@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Memory Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="menu-screen" id="menuScreen">
+            <h1>StarkPath</h1>
+            <h2>Memory Game</h2>
+            <div class="menu-buttons">
+                <button id="startButton">Start Game</button>
+                <button id="howToPlayButton">How to Play</button>
+            </div>
+        </div>
+
+        <div class="how-to-play-screen" id="howToPlayScreen">
+            <h2>How to Play</h2>
+            <div class="instructions">
+                <p>1. Watch the path shown by the highlighted tiles</p>
+                <p>2. Remember the sequence</p>
+                <p>3. Repeat the path by clicking the tiles in order</p>
+                <p>4. Complete all levels to win!</p>
+            </div>
+            <button id="backToMenuButton">Back to Menu</button>
+        </div>
+
+        <div class="game-screen" id="gameScreen">
+            <div class="game-header">
+                <div class="level-display">Level: <span id="levelDisplay">1</span></div>
+                <div class="score-display">Score: <span id="scoreDisplay">0</span></div>
+                <div class="lives-display">Lives: <span id="livesDisplay">3</span></div>
+            </div>
+            
+            <div class="grid-container" id="gridContainer"></div>
+            
+            <div class="game-controls">
+                <button id="restartButton">Restart Level</button>
+                <button id="menuButton">Main Menu</button>
+            </div>
+        </div>
+
+        <div class="level-complete-screen" id="levelCompleteScreen">
+            <h2>Level Complete!</h2>
+            <p>Score: <span id="completeScore">0</span></p>
+            <p>Bonus: <span id="bonusPoints">0</span></p>
+            <button id="nextLevelButton">Next Level</button>
+        </div>
+
+        <div class="game-over-screen" id="gameOverScreen">
+            <h2>Game Over</h2>
+            <p>You reached level <span id="finalLevel">1</span></p>
+            <p>Final score: <span id="finalScore">0</span></p>
+            <button id="playAgainButton">Play Again</button>
+        </div>
+    </div>
+
+    <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+    <audio id="wrongSound" src="https://assets.mixkit.co/active_storage/sfx/946/946-preview.mp3"></audio>
+    <audio id="applauseSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-applause-947.mp3"></audio>
+    <audio id="levelCompleteSound" src="https://assets.mixkit.co/active_storage/sfx/600/600-preview.mp3"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/active_storage/sfx/2027/2027-preview.mp3"></audio>
+    <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3"></audio>
+
+    <script src="game.js"></script>
+</body>
+</html>
